@@ -13,16 +13,29 @@ import java.util.List;
 @RequestMapping(path = "api/v1/staff")
 public class StaffController {
 
-    @GetMapping    // In order to be served as a restful endpoint we need to annotate it
-	public List<Staff> getStaff(){    //method, returns a json array
-		return List.of(
-				new Staff(
-						1L,
-						"Kelly",
-						"kelly@gmail.com",
-						LocalDate.of(2000, Month.JANUARY,1),
-						24
-				)
-		);
-	}
+    private final StaffService staffService;
+
+    public StaffController (StaffService staffService){
+        this.staffService = staffService;
+    }
+
+    @GetMapping
+    public List<Staff> getStaff(){
+        return staffService.getStaff();
+    }
+
+
+    // @GetMapping    // In order to be served as a restful endpoint we need to annotate it
+//	public List<Staff> getStaff(){    //method, returns a json array
+//		return List.of(
+//				new Staff(
+//						1L,
+//						"Kelly",
+//						"kelly@gmail.com",
+//						LocalDate.of(2000, Month.JANUARY,1),
+//						24
+//				)
+//		);
+//	}
 }
+// the service layer is responsible for business logic
