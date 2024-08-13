@@ -11,22 +11,22 @@ import java.time.Month;
 import java.util.List;
 
 @SpringBootApplication
-@RestController  //
+// @RestController  I removed this from demo with the @GetMapping and put in the controller Class
 public class DemoApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(DemoApplication.class, args);
 	}
-	@GetMapping    // In order to be served as a restful endpoint we need to annotate it
-	public List<Staff> hello(){    //method, returns a json array
-		return List.of(
-				new Staff(
-						1L,
-						"Kelly",
-						"kelly@gmail.com",
-						LocalDate.of(2000, Month.JANUARY,1),
-						24
-				)
-		);
-	}
+//	@GetMapping    // In order to be served as a restful endpoint we need to annotate it
+//	public List<Staff> hello(){    //method, returns a json array
+//		return List.of(
+//				new Staff(
+//						1L,
+//						"Kelly",
+//						"kelly@gmail.com",
+//						LocalDate.of(2000, Month.JANUARY,1),
+//						24
+//				)
+//		);
+//	}
 }
