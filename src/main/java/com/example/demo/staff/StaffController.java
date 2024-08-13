@@ -1,6 +1,7 @@
 package com.example.demo.staff;
 
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -15,6 +16,7 @@ public class StaffController {
 
     private final StaffService staffService;
 
+    @Autowired //we are say that the StaffService should be autowired for us
     public StaffController (StaffService staffService){
         this.staffService = staffService;
     }
@@ -38,4 +40,3 @@ public class StaffController {
 //		);
 //	}
 }
-// the service layer is responsible for business logic
